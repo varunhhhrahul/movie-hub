@@ -230,7 +230,6 @@ class MovieForm extends HookWidget {
       },
       child: SingleChildScrollView(
         child: Container(
-          // height: 380,
           padding: const EdgeInsets.fromLTRB(
             20,
             20,
