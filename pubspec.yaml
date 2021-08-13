@@ -43,6 +43,7 @@ dependencies:
   google_fonts: ^2.1.0
   hive_flutter: ^1.1.0
   path_provider: ^2.0.2
+  cloudinary_public: ^0.9.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

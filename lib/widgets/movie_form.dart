@@ -35,33 +35,41 @@ class MovieForm extends HookWidget {
     final _imageLoading = useState<bool>(false);
 
     void _openGallery() async {
-      final picker = ImagePicker();
-      final imageFile = await picker.getImage(
-        source: ImageSource.gallery,
-        imageQuality: 1,
-      );
-      if (imageFile == null) return;
-      _imageLoading.value = true;
-      final url = await uploadImage(imageFile);
-      _imageLoading.value = false;
-      _imageUrlController.text = url;
-      _imageUrl.value = url;
+      try {
+        final picker = ImagePicker();
+        final imageFile = await picker.getImage(
+          source: ImageSource.gallery,
+          imageQuality: 1,
+        );
+        if (imageFile == null) return;
+        _imageLoading.value = true;
+        final url = await uploadImage(imageFile);
+        _imageLoading.value = false;
+        _imageUrlController.text = url;
+        _imageUrl.value = url;
+      } catch (e) {
+        print(e.toString());
+      }
     }
 
     void _openCamera() async {
-      final picker = ImagePicker();
-      final imageFile = await picker.getImage(
-        source: ImageSource.camera,
-        imageQuality: 1,
-        preferredCameraDevice: CameraDevice.rear,
-        maxWidth: 600,
-      );
-      if (imageFile == null) return;
-      _imageLoading.value = true;
-      final url = await uploadImage(imageFile);
-      _imageLoading.value = false;
-      _imageUrlController.text = url;
-      _imageUrl.value = url;
+      try {
+        final picker = ImagePicker();
+        final imageFile = await picker.getImage(
+          source: ImageSource.camera,
+          imageQuality: 1,
+          preferredCameraDevice: CameraDevice.rear,
+          maxWidth: 600,
+        );
+        if (imageFile == null) return;
+        _imageLoading.value = true;
+        final url = await uploadImage(imageFile);
+        _imageLoading.value = false;
+        _imageUrlController.text = url;
+        _imageUrl.value = url;
+      } catch (e) {
+        print(e.toString());
+      }
     }
 
     void _showOptions() async {
